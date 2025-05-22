@@ -15,9 +15,9 @@ def dfs(index, count):
     for i in range(1, n+1):
         if graph[index][i] and not visited[i]:
             dfs(i, count+1)
-MAX = 100+10
-visited = [False] * MAX
-graph = [[False]* MAX for _ in range(MAX)]
+
+visited = [False] * (n+1)
+graph = [[False]* (n+1) for _ in range(n+1)]
 answer = -1
 
 for _ in range(m):
