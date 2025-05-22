@@ -1,7 +1,3 @@
-import sys
-sys.setrecursionlimit(10**6)
-input = sys.stdin.readline
-
 n = int(input())
 start, end = map(int, input().split())
 m = int(input())
