@@ -3,32 +3,31 @@ input = sys.stdin.readline
 sys.setrecursionlimit(10**6)
 
 def dfs(idx):
-    global graph, visited
+    global map_, visited
     
     visited[idx] = True
     
     for i in range(1, N+1):
-        if not visited[i] and graph[idx][i]:
+        if not visited[i] and map_[idx][i]:
             dfs(i)
 
 # 0. 입력
 N, M = map(int, input().split())
-MAX = 1000 + 10
+map_ = [[False]*(N+1) for _ in range(N+1)]
+visited = [False]*(N+1)
 answer = 0
-graph = [[False]*MAX for _ in range(MAX)]
-visited = [False] * MAX
 
-# 1. 그래프 채우기
+# 1. 채우기
 for _ in range(M):
     x, y = map(int, input().split())
-    graph[x][y] = True
-    graph[y][x] = True
+    map_[x][y] = True
+    map_[y][x] = True
     
-# 2. dfs 불러오기
+# 2. dfs 출력
 for i in range(1, N+1):
     if not visited[i]:
         dfs(i)
         answer += 1
-        
-# 3. 출력
+
+# 3. 답변 출력
 print(answer)
